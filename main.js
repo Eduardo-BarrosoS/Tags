@@ -26,6 +26,8 @@ function addTags(event) {
 }
 
 function upDateTags(){
+    clearTags()
+
     tags.slice().reverse().forEach(tag => {
         tagContainer.prepend(createTag(tag))
     })
@@ -44,7 +46,7 @@ function createTag(tag) {
     const i = document.createElement('i')
     i.classList.add('close')
     i.setAttribute('data-item', tag)
-    i.onclick = removeTag
+    i.addEventListener('onclick', removeTag)
     span.append(i)
 
 
@@ -52,11 +54,16 @@ function createTag(tag) {
     return div
 }
 
+
 function removeTag(event) {
-    const buttonX = event.currentTarget
-    const id = buttonX.dataset.item
-    const index = tags.indexOf(id)
+    const buttonX = event.currentTarget 
+    const item = buttonX.dataset.item
+    const index = tags.indexOf(item)
     tags.splice(index, 1)
-    console.log(index)
-    upDateTags()
+
+}
+
+function clearTags(){
+    tagContainer.querySelectorAll('.tag')
+        .forEach( tagElement => tagElement.remove())
 }

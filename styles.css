@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Inter:wght@400;800&family=Roboto:wght@400;700&display=swap');
+
+
+
+:root {
+    --bg: #130f0d;
+    --primary: #fd951f;
+    --primary-opaque: rgba(250, 152, 5, 0.139);
+    --white: #f0f0f9;
+    
+    font-size: 62.5%;
+    
+}
+
+
+
+*, button, input {
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    color: var(--white);
+}
+
+header {
+
+    margin-top: 3.2rem;
+    text-align: center;
+    padding-bottom: 6.4rem;
+    color: var(--primary);
+    animation: up 0.4s;
+}
+
+main{
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 96rem;
+    animation: up 0.4s 0.2s backwards;
+
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 5.12rem 0.25rem;
+    animation: up 0.4s 0.4s backwards;
+}
+footer::after {
+    content: "Feito por Eduardo Barroso";
+    opacity: 0.6;
+    font-size: 1.28rem;
+}
+
+@keyframes up {
+    from{
+        opacity: 0;
+        transform: translateY(1.5rem);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/*======= TAGS INPUT =============================================*/
+
+
+.tag-container {
+    border: 0.2rem solid var(--primary-opaque);
+    border-radius: 0.32rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    padding: 0.64rem;
+    overflow-x: auto;
+}
+
+.tag-container,
+.tag-container input,
+.tag-container .tag {
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--white);
+
+}
+
+.tag-container .tag {
+    margin: 0.64rem;
+    padding: .64rem .96rem;
+    border-bottom: 0.02rem solid var(--primary);
+
+    font-size: 1.2rem;
+
+    display: flex;
+    align-items: center;
+    
+    cursor: default;
+}
+
+
+.tag i {
+    font-size: 1.28rem;
+    font-style: normal;
+
+    margin-left: .64rem;
+
+    transform: translateY(0.12rem);
+}
+
+.close::after {
+    content: "x";
+    height: 2.4rem;
+    width: 2.4rem;
+
+}
+
+.tag-container input {
+    padding: .64rem;
+
+    font-size: 1.92rem;
+    border: 0;
+    outline: none;
+    flex: 1;
+}

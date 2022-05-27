@@ -9,7 +9,7 @@ function addTags(event) {
     const keyPressedEnter = event.key == 'Enter'
     
     if(keyPressedEnter) {
-        
+
         input.value.split(',').forEach( tag => {
             if (tag) {
                 tags.push(tag.trim())
@@ -21,7 +21,7 @@ function addTags(event) {
     
 
     
-    console.log(tags)
+    
     
 }
 
@@ -43,10 +43,30 @@ function createTag(tag) {
 
     div.append(span)
 
+    
+    // let item = ''
+    // let index = 0 
+    // tags.forEach(() => {
+    //     index = tags.length 
+
+    //     item += `
+    //          div class="tag">
+    //             <span>${input.value}</span>
+    //             <i onclick="removeTag(${index}) class="close"></i>
+    //          </div>
+    //          `
+    //          console.log(item)
+
+    //    tagContainer.innerHTML = item
+    // })
+    
+    
+
     const i = document.createElement('i')
-    i.classList.add('close')
+    i.classList.add(`close`)
     i.setAttribute('data-item', tag)
-    i.addEventListener('onclick', removeTag)
+    // i.onclick = removeTag
+    i.addEventListener('click', removeTag)
     span.append(i)
 
 
@@ -56,10 +76,13 @@ function createTag(tag) {
 
 
 function removeTag(event) {
+    console.log("alo")
+    
     const buttonX = event.currentTarget 
     const item = buttonX.dataset.item
     const index = tags.indexOf(item)
     tags.splice(index, 1)
+    upDateTags()
 
 }
 
@@ -67,3 +90,4 @@ function clearTags(){
     tagContainer.querySelectorAll('.tag')
         .forEach( tagElement => tagElement.remove())
 }
+

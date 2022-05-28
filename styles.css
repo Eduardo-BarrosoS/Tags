@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Inter:wght@400;800&family=Roboto:wght@400;700&display=swap');
-
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
 
 
 :root {
@@ -69,21 +69,46 @@ footer::after {
 
 /*======= TAGS INPUT =============================================*/
 
-
-.tag-container {
-    border: 0.2rem solid var(--primary-opaque);
-    border-radius: 0.32rem;
-
+main {
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-
-    padding: 0.64rem;
-    overflow-x: auto;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .tag-container,
-.tag-container input,
+.tagContainerList {
+    min-height: 3rem;
+    border: 0.2rem solid var(--primary-opaque);
+    border-radius: 0.32rem;
+    flex-wrap: wrap;
+
+}
+
+.tag-container {
+    max-width: 60rem;
+    min-width: 40rem; 
+
+    display: flex;
+    justify-content: center;
+
+    padding: 0.64rem;
+    overflow: auto;
+    
+}
+
+.tagContainerList {
+    max-height: 30rem;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    
+    overflow-y: auto;
+    padding: 1rem 0.64rem;
+    /* background-color: #fd951f; */
+}
+
+.tag-container,
 .tag-container .tag {
     background: rgba(0, 0, 0, 0.2);
     color: var(--white);
@@ -99,6 +124,7 @@ footer::after {
 
     display: flex;
     align-items: center;
+    word-break: break-all;
     
     cursor: default;
 }
@@ -108,9 +134,14 @@ footer::after {
     font-size: 1.28rem;
     font-style: normal;
 
-    margin-left: .64rem;
+    padding-left: .64rem;
 
     transform: translateY(0.12rem);
+    cursor: pointer;
+    
+}
+.tag i:hover {
+    color: var(--primary);
 }
 
 .close::after {
@@ -121,10 +152,72 @@ footer::after {
 }
 
 .tag-container input {
-    padding: .64rem;
 
+    background-color: #a4a4a4;
+    padding: .64rem 1.5rem;
     font-size: 1.92rem;
-    border: 0;
+    
+    border-radius: 4rem;
     outline: none;
     flex: 1;
+    display: none;
+    
+    /* c show; */
+    animation-duration: .7s;
+    /* width: 0; */
+   
+}
+
+@keyframes show {
+ 0% {
+    width: 1rem;
+ }
+ 100% {
+    width: 22rem;
+     
+ }
+}
+@keyframes hide {
+ 0% {
+    width: 22rem;
+ }
+ 100% {
+    width: 1rem;
+     
+ }
+}
+
+.tag-container .input:focus,
+.tag-container .input:hover {
+    border: .15rem solid var(--primary);
+}
+
+.show{
+    padding-block: 2rem;
+    display: flex;
+    align-items: flex-end;
+    
+}
+
+i.send {
+    color: #fd951f;
+    
+    display: flex;
+    font-size: 4rem;
+    display: none;
+    margin-left: 1rem;
+    cursor: pointer;
+
+}
+
+.plus {
+    color: #fd951f;
+    font-size: 4rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    
+}
+
+main p {
+    font-size: 1.5rem;
 }

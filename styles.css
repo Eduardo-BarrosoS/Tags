@@ -5,7 +5,7 @@
 :root {
     --bg: #130f0d;
     --primary: #fd951f;
-    --primary-opaque: rgba(250, 152, 5, 0.139);
+    --primary-opaque: rgba(250, 152, 5, 0.345);
     --white: #f0f0f9;
     
     font-size: 62.5%;
@@ -68,6 +68,74 @@ footer::after {
 }
 
 /*======= TAGS INPUT =============================================*/
+
+.alert {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+
+
+    background: var(--primary);
+    width: 25rem;
+    height: 7rem;
+
+    border-radius: .5rem;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation-duration: 0.7s;
+}
+
+
+@keyframes alert {
+    0%{
+        transform: translateX(100rem);
+        opacity: 0;
+
+    }
+    
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.alert p {
+    color: #f9f9f9;
+
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.alert div {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+    /* border-radius: 0 0 0.5rem 0.5rem; */
+
+    background: hsl(32, 100%, 39%);
+
+    padding-top: .8rem;
+    width: 100%;
+
+    /* animation-name: timeBar; */
+    animation-duration: 3s;
+}
+
+@keyframes timeBar {
+    0% {
+        width: 0;
+    }
+    
+    100%{
+        width: 100%;
+    }
+
+}
+
 
 main {
     display: flex;

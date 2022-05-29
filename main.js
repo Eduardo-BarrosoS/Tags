@@ -3,60 +3,100 @@ const tagContainer = document.querySelector('.tag-container')
 const tagContainerList = document.querySelector('.tagContainerList')
 const input =  tagContainer.querySelector('input')
 const iconPlus = tagContainer.querySelector('.plus')
-const iconSend= tagContainer.querySelector('.send')
+const iconSend = tagContainer.querySelector('.send')
+const divAlert = document.querySelector('.alert')
+const timeBar = divAlert.querySelector('.timeBar')
+
 
 iconPlus.addEventListener('click', showInput)
 iconSend.addEventListener('click', hideInput)
 
 function hideInput() {
-    iconPlus.style.display='flex';
-    iconSend.style.display='none';
-    input.style.display='none';
-    input.style.animationName='hide';
-}
+    if (input.value == ''){
+        iconPlus.style.display='none';
+        iconSend.style.display='flex';
+        input.style.display='flex';
+        input.style.animationName='show';
+    } else {
+        iconPlus.style.display='flex';
+        iconSend.style.display='none';
+        input.style.display='none';
+        input.style.animationName='hide';
+    }
+    }
+    
 
 function showInput(){
     iconPlus.style.display='none';
     iconSend.style.display='flex';
     input.style.display='flex';
     input.style.animationName='show';
-
 }
+
+
 
 input.addEventListener('keyup', addTags)
 iconSend.addEventListener('click', addTagsWithIconSend)
+iconSend.addEventListener('click', alert)
+
+
 
 
 function addTagsWithIconSend(event) {
     const mousePressed = event.type == 'click'
-    
-    if(mousePressed) {
+    if (input.value == '') {
 
-        input.value.split(',').forEach( tag => {
-            if (tag) {
-                tags.push(tag.trim())
-            }
-        })
-    upDateTags()
-    input.value = ""
-    }
+        setTimeout( ( ) => {
+            divAlert.style.display = 'none'
+        }, 3000)
+        divAlert.style.display = 'flex'
+        divAlert.style.animationName = 'alert'
+        timeBar.style.animationName = 'timeBar' 
+        
+
+    } else {
+        if(mousePressed) {
+
+            input.value.split(',').forEach( tag => {
+                if (tag) {
+                    tags.push(tag.trim())
+                }
+            })
+            upDateTags()
+            input.value = ""
+        }
   
+    }
+    
 }
 
 function addTags(event) {
 
     const keyPressedEnter = event.key == 'Enter'
     
-    if(keyPressedEnter) {
+    if (input.value == '') {
+
+        setTimeout( ( ) => {
+            divAlert.style.display = 'none'
+        }, 3000)
+        divAlert.style.display = 'flex'
+        divAlert.style.animationName = 'alert'
+        timeBar.style.animationName = 'timeBar' 
+        
+
+    } else {
+        if(keyPressedEnter) {
 
         input.value.split(',').forEach( tag => {
             if (tag) {
                 tags.push(tag.trim())
             }
         })
-    upDateTags()
-    input.value = ""
+        upDateTags()
+        input.value = ""
+        }
     }
+    
   
 }
 
@@ -85,8 +125,6 @@ function createTag(tag) {
     i.addEventListener('click', removeTag)
     span.append(i)
 
-
-
     return div
 }
 
@@ -106,6 +144,7 @@ function clearTags(){
     tagContainerList.querySelectorAll('.tag')
         .forEach( tagElement => tagElement.remove())
 }
+
 
 
 

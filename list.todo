@@ -1,0 +1,22 @@
+{
+  "todotree": {
+    "tree": [
+      {
+        "key": 1653760141990,
+        "children": [],
+        "todo": {
+          "content": "criar o aletra pra aviser quer o input precisa ser prenchido  antes de criar a teg",
+          "id": 1653760141990,
+          "level": "default",
+          "done": false,
+          "editing": false
+        }
+      }
+    ],
+    "expandKeys": [],
+    "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
+    "add_mode": "bottom",
+    "virtual": false,
+    "showLine": false
+  }
+}
